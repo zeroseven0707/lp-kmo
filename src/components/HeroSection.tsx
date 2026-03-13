@@ -4,7 +4,7 @@ const HeroSection = () => (
   <section className="gradient-hero pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
     <div className="container mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <div className="flex-1 text-center md:text-left">
+        <div className="flex-1 text-center md:text-left animate-slide-in-left">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground mb-5">
             KMO App – <span className="text-gradient">Ekosistem Literasi</span> untuk Penulis Masa Kini
           </h1>
@@ -12,16 +12,16 @@ const HeroSection = () => (
             Belajar menulis, membangun karya, dan berkembang bersama komunitas literasi dalam satu aplikasi.
           </p>
           <div id="download" className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
-            <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" className="gradient-primary text-primary-foreground font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+            <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" className="gradient-primary text-primary-foreground font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
               <GooglePlayIcon /> Download on Google Play
             </a>
-            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="bg-foreground text-background font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="bg-foreground text-background font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
               <AppleIcon /> Download on App Store
             </a>
           </div>
         </div>
-        <div className="flex-1 flex justify-center items-center">
-          <img src={appMockup} alt="KMO App mobile mockup" className="w-72 sm:w-80 md:w-96 lg:w-[28rem] animate-float drop-shadow-2xl" />
+        <div className="flex-1 flex justify-center items-center animate-slide-in-right">
+          <img src={appMockup} alt="KMO App mobile mockup" className="w-72 sm:w-80 md:w-96 lg:w-[28rem] animate-bounce-subtle drop-shadow-2xl" />
         </div>
       </div>
     </div>
