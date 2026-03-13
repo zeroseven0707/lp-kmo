@@ -11,7 +11,7 @@ const HeroSection = () => (
           <p className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed">
             Belajar menulis, membangun karya, dan berkembang bersama komunitas literasi dalam satu aplikasi.
           </p>
-          <div id="download" className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
             <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" className="gradient-primary text-primary-foreground font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
               <GooglePlayIcon /> Download on Google Play
             </a>

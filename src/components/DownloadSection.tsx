@@ -26,7 +26,7 @@ const DownloadSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24">
+    <section id="download" ref={sectionRef} className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className={`gradient-primary rounded-3xl p-8 md:p-14 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-4">Download KMO App Sekarang</h2>
