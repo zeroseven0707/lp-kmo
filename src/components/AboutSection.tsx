@@ -37,12 +37,16 @@ const AboutSection = () => {
                 src={mock1}
                 alt="KMO App Screenshot"
                 loading="lazy"
+                width={320}
+                height={640}
                 className="absolute left-0 sm:left-0 md:left-4 top-4 sm:top-8 md:top-4 w-56 sm:w-60 md:w-72 lg:w-80 rotate-[-8deg] drop-shadow-2xl hover:rotate-[-5deg] transition-all duration-500 hover:scale-105 z-10"
               />
               <img
                 src={mock3}
                 alt="KMO App Screenshot"
                 loading="lazy"
+                width={352}
+                height={704}
                 className="absolute right-0 sm:right-0 md:right-4 top-16 sm:top-20 md:top-16 w-60 sm:w-64 md:w-80 lg:w-[22rem] rotate-[8deg] drop-shadow-2xl hover:rotate-[5deg] transition-all duration-500 hover:scale-105 z-20"
               />
             </div>
