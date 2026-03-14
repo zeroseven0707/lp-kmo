@@ -1,9 +1,13 @@
+import { useState } from "react";
 import appMockup from "@/assets/mock2.png";
 
-const HeroSection = () => (
+const HeroSection = () => {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  return (
   <section className="gradient-hero pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
     <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <div className="flex-1 text-center md:text-left animate-slide-in-left">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground mb-5">
             KMO App – <span className="text-gradient">Ekosistem Literasi</span> untuk Penulis Masa Kini
@@ -21,12 +25,26 @@ const HeroSection = () => (
           </div>
         </div>
         <div className="flex-1 flex justify-center items-center animate-slide-in-right">
-          <img src={appMockup} alt="KMO App mobile mockup" fetchPriority="high" width={448} height={800} className="w-72 sm:w-80 md:w-96 lg:w-[28rem] animate-bounce-subtle drop-shadow-2xl" />
+          <div className="relative w-56 sm:w-80 md:w-96 lg:w-[28rem]">
+            {!imgLoaded && (
+              <div className="w-full aspect-[9/16] rounded-3xl bg-muted animate-pulse" />
+            )}
+            <img
+              src={appMockup}
+              alt="KMO App mobile mockup"
+              fetchPriority="high"
+              width={448}
+              height={800}
+              onLoad={() => setImgLoaded(true)}
+              className={`w-full animate-bounce-subtle drop-shadow-2xl transition-opacity duration-500 ${imgLoaded ? 'opacity-100' : 'opacity-0 absolute inset-0'}`}
+            />
+          </div>
         </div>
       </div>
     </div>
   </section>
-);
+  );
+}
 
 const GooglePlayIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.698-2.302 2.698-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
