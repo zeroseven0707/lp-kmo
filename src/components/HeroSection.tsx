@@ -21,7 +21,7 @@ const HeroSection = () => (
           </div>
         </div>
         <div className="flex-1 flex justify-center items-center animate-slide-in-right">
-          <img src={appMockup} alt="KMO App mobile mockup" className="w-72 sm:w-80 md:w-96 lg:w-[28rem] animate-bounce-subtle drop-shadow-2xl" />
+          <img src={appMockup} alt="KMO App mobile mockup" loading="lazy" className="w-72 sm:w-80 md:w-96 lg:w-[28rem] animate-bounce-subtle drop-shadow-2xl" />
         </div>
       </div>
     </div>
