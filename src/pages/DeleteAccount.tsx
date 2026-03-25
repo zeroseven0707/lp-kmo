@@ -5,10 +5,11 @@ import Footer from "@/components/Footer";
 import { Smartphone, Mail, ShieldAlert, Clock, MessageCircle, ChevronRight, Trash2 } from "lucide-react";
 
 const steps = [
-  { number: "01", text: "Buka KMO App di perangkat Anda" },
-  { number: "02", text: "Pergi ke menu Pengaturan" },
-  { number: "03", text: 'Ketuk "Hapus Akun"' },
-  { number: "04", text: "Ikuti instruksi yang diberikan" },
+  { number: "01", text: "Buka KMO App" },
+  { number: "02", text: "Pergi ke Profil" },
+  { number: "03", text: "Klik menu informasi akun" },
+  { number: "04", text: 'Tap "Hapus Akun"' },
+  { number: "05", text: "Ikuti instruksi yang diberikan" },
 ];
 
 const dataPoints = [
@@ -69,7 +70,7 @@ const DeleteAccount = () => {
               {steps.map((step, i) => (
                 <div
                   key={step.number}
-                  className={`flex items-center gap-4 bg-muted/50 rounded-xl p-4 transition-all duration-500 hover:shadow-card hover:-translate-y-0.5 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                  className={`flex items-center gap-4 bg-muted/50 rounded-xl p-4 transition-all duration-500 hover:shadow-card hover:-translate-y-0.5 ${i === steps.length - 1 ? "sm:col-span-2 sm:max-w-sm sm:mx-auto sm:w-full justify-center" : ""} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
                   style={{ transitionDelay: `${100 + i * 80}ms` }}
                 >
                   <span className="text-2xl font-bold text-gradient leading-none">{step.number}</span>
@@ -96,8 +97,8 @@ const DeleteAccount = () => {
             <div className="p-6 flex flex-col sm:flex-row gap-4">
               <div className="flex-1 bg-muted/50 rounded-xl p-4">
                 <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider font-semibold">Kirim ke</p>
-                <a href="mailto:support@kmoapp.id" className="text-primary font-semibold hover:underline text-sm">
-                  support@kmoapp.id
+                <a href="mailto:devs.kmo@gmail.com" className="text-primary font-semibold hover:underline text-sm">
+                  devs.kmo@gmail.com
                 </a>
               </div>
               <div className="flex-1 bg-muted/50 rounded-xl p-4">
@@ -159,19 +160,12 @@ const DeleteAccount = () => {
               Tim kami siap membantu Anda. Jangan ragu untuk menghubungi kami kapan saja.
             </p>
             <a
-              href="mailto:support@kmoapp.id"
+              href="mailto:devs.kmo@gmail.com"
               className="inline-flex items-center gap-2 gradient-primary text-primary-foreground text-sm font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-elevated"
             >
               <Mail className="w-4 h-4" />
-              support@kmoapp.id
+              devs.kmo@gmail.com
             </a>
-          </div>
-
-          {/* Back link */}
-          <div className="text-center pb-4">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-1">
-              ← Kembali ke Beranda
-            </Link>
           </div>
         </div>
       </main>
