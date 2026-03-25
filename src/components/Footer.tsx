@@ -8,6 +8,7 @@ const Footer = () => (
         <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
         <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
         <Link to="/terms" className="hover:text-foreground transition-colors">Terms & Conditions</Link>
+        <Link to="/delete-account" className="hover:text-foreground transition-colors">Delete Account</Link>
         <a href="mailto:devs.kmo@gmail.com" className="hover:text-foreground transition-colors">Contact</a>
       </nav>
       <p className="text-xs text-muted-foreground">© 2024 KMO Indonesia. All rights reserved.</p>

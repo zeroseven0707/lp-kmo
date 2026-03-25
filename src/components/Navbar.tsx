@@ -1,25 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
     setOpen(false);
+
+    const scrollToSection = () => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const offset = 80;
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      }
+    };
+
+    if (location.pathname === "/") {
+      scrollToSection();
+    } else {
+      navigate("/");
+      // wait for page to render then scroll
+      setTimeout(scrollToSection, 100);
+    }
   };
+
+  const navLinkClass = "text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105";
+  const mobileNavLinkClass = "text-sm font-medium text-muted-foreground py-2 transition-colors duration-300";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border transition-all duration-300">
@@ -28,84 +39,43 @@ const Navbar = () => {
           <img src="/logo.png" alt="KMO App Logo" className="h-8 w-8 md:h-10 md:w-10" />
           <span className="text-xl font-bold text-gradient">KMO App</span>
         </Link>
+
+        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          <a 
-            href="#about" 
-            onClick={(e) => handleSmoothScroll(e, "about")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105"
-          >
-            Tentang
-          </a>
-          <a 
-            href="#features" 
-            onClick={(e) => handleSmoothScroll(e, "features")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105"
-          >
-            Fitur
-          </a>
-          <a 
-            href="#ecosystem" 
-            onClick={(e) => handleSmoothScroll(e, "ecosystem")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105"
-          >
-            Ekosistem
-          </a>
-          <a 
-            href="#contact" 
-            onClick={(e) => handleSmoothScroll(e, "contact")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105"
-          >
-            Kontak
-          </a>
-          <a 
-            href="#download" 
-            onClick={(e) => handleSmoothScroll(e, "download")}
+          <a href="#about" onClick={(e) => handleNavClick(e, "about")} className={navLinkClass}>Tentang</a>
+          <a href="#features" onClick={(e) => handleNavClick(e, "features")} className={navLinkClass}>Fitur</a>
+          <a href="#ecosystem" onClick={(e) => handleNavClick(e, "ecosystem")} className={navLinkClass}>Ekosistem</a>
+          <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className={navLinkClass}>Kontak</a>
+          <Link to="/delete-account" className={navLinkClass}>Hapus Akun</Link>
+          <a
+            href="#download"
+            onClick={(e) => handleNavClick(e, "download")}
             className="gradient-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             Download
           </a>
         </div>
-        <button 
-          onClick={() => setOpen(!open)} 
-          className="md:hidden p-2 text-foreground transition-transform duration-300 hover:scale-110" 
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden p-2 text-foreground transition-transform duration-300 hover:scale-110"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
+
+      {/* Mobile */}
       {open && (
         <div className="md:hidden bg-card border-b border-border px-4 pb-4 flex flex-col gap-3 animate-slide-up">
-          <a 
-            href="#about" 
-            onClick={(e) => handleSmoothScroll(e, "about")}
-            className="text-sm font-medium text-muted-foreground py-2 transition-colors duration-300"
-          >
-            Tentang
-          </a>
-          <a 
-            href="#features" 
-            onClick={(e) => handleSmoothScroll(e, "features")}
-            className="text-sm font-medium text-muted-foreground py-2 transition-colors duration-300"
-          >
-            Fitur
-          </a>
-          <a 
-            href="#ecosystem" 
-            onClick={(e) => handleSmoothScroll(e, "ecosystem")}
-            className="text-sm font-medium text-muted-foreground py-2 transition-colors duration-300"
-          >
-            Ekosistem
-          </a>
-          <a 
-            href="#contact" 
-            onClick={(e) => handleSmoothScroll(e, "contact")}
-            className="text-sm font-medium text-muted-foreground py-2 transition-colors duration-300"
-          >
-            Kontak
-          </a>
-          <a 
-            href="#download" 
-            onClick={(e) => handleSmoothScroll(e, "download")}
+          <a href="#about" onClick={(e) => handleNavClick(e, "about")} className={mobileNavLinkClass}>Tentang</a>
+          <a href="#features" onClick={(e) => handleNavClick(e, "features")} className={mobileNavLinkClass}>Fitur</a>
+          <a href="#ecosystem" onClick={(e) => handleNavClick(e, "ecosystem")} className={mobileNavLinkClass}>Ekosistem</a>
+          <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className={mobileNavLinkClass}>Kontak</a>
+          <Link to="/delete-account" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Hapus Akun</Link>
+          <a
+            href="#download"
+            onClick={(e) => handleNavClick(e, "download")}
             className="gradient-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full text-center transition-all duration-300"
           >
             Download
