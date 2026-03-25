@@ -33,6 +33,7 @@ const HeroSection = () => {
               src={appMockup}
               alt="KMO App mobile mockup"
               fetchPriority="high"
+              loading="eager"
               width={448}
               height={800}
               onLoad={() => setImgLoaded(true)}

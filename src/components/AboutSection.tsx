@@ -4,6 +4,8 @@ import mock3 from "@/assets/mock3.png";
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [img1Loaded, setImg1Loaded] = useState(false);
+  const [img3Loaded, setImg3Loaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -33,21 +35,29 @@ const AboutSection = () => {
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
           <div className={`flex-1 flex justify-center items-center w-full transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="relative w-full max-w-[400px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[520px] h-[420px] sm:h-[450px] md:h-[450px]">
+              {!img1Loaded && (
+                <div className="absolute left-0 sm:left-0 md:left-4 top-4 sm:top-8 md:top-4 w-56 sm:w-60 md:w-72 lg:w-80 aspect-[9/16] rounded-3xl bg-muted animate-pulse z-10" />
+              )}
               <img
                 src={mock1}
                 alt="KMO App Screenshot"
                 loading="lazy"
                 width={320}
                 height={640}
-                className="absolute left-0 sm:left-0 md:left-4 top-4 sm:top-8 md:top-4 w-56 sm:w-60 md:w-72 lg:w-80 rotate-[-8deg] drop-shadow-2xl hover:rotate-[-5deg] transition-all duration-500 hover:scale-105 z-10"
+                onLoad={() => setImg1Loaded(true)}
+                className={`absolute left-0 sm:left-0 md:left-4 top-4 sm:top-8 md:top-4 w-56 sm:w-60 md:w-72 lg:w-80 rotate-[-8deg] drop-shadow-2xl hover:rotate-[-5deg] transition-all duration-500 hover:scale-105 z-10 ${img1Loaded ? "opacity-100" : "opacity-0"}`}
               />
+              {!img3Loaded && (
+                <div className="absolute right-0 sm:right-0 md:right-4 top-16 sm:top-20 md:top-16 w-60 sm:w-64 md:w-80 lg:w-[22rem] aspect-[9/16] rounded-3xl bg-muted animate-pulse z-20" />
+              )}
               <img
                 src={mock3}
                 alt="KMO App Screenshot"
                 loading="lazy"
                 width={352}
                 height={704}
-                className="absolute right-0 sm:right-0 md:right-4 top-16 sm:top-20 md:top-16 w-60 sm:w-64 md:w-80 lg:w-[22rem] rotate-[8deg] drop-shadow-2xl hover:rotate-[5deg] transition-all duration-500 hover:scale-105 z-20"
+                onLoad={() => setImg3Loaded(true)}
+                className={`absolute right-0 sm:right-0 md:right-4 top-16 sm:top-20 md:top-16 w-60 sm:w-64 md:w-80 lg:w-[22rem] rotate-[8deg] drop-shadow-2xl hover:rotate-[5deg] transition-all duration-500 hover:scale-105 z-20 ${img3Loaded ? "opacity-100" : "opacity-0"}`}
               />
             </div>
           </div>
