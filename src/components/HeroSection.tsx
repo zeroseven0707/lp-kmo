@@ -16,10 +16,10 @@ const HeroSection = () => {
             Belajar menulis, membangun karya, dan berkembang bersama komunitas literasi dalam satu aplikasi.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
-            <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" className="gradient-primary text-primary-foreground font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
+            <a href="https://play.google.com/store/apps/details?id=id.kmoapp.literasi" target="_blank" rel="noopener noreferrer" className="gradient-primary text-primary-foreground font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
               <GooglePlayIcon /> Download on Google Play
             </a>
-            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="bg-foreground text-background font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
+            <a href="https://mobile.kmoapp.id/" target="_blank" rel="noopener noreferrer" className="bg-foreground text-background font-semibold px-7 py-3.5 rounded-full text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
               <AppleIcon /> Download on App Store
             </a>
           </div>
